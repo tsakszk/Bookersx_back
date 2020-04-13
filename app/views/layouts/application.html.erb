@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:notice]%>
+     <div class="noticecation is-info">
+      <p class="notice"><%= notice %></p>
+    </div>
+    <%end%>
+
+    <% if flash[:alert]%>
+     <div class="noticecation is-denger">
+      <p class="alert"><%= alert %></p>
+     </div>
+    <%end%>
+
+     <span>Bookers</span>
+     <% if user_signed_in? %>
+      <%= link_to "Home",user_path(current_user.id) %>
+      <%= link_to "Users",users_path %>
+      <%= link_to "Books",books_path %>
+      <%= link_to "logout",destroy_user_session_path, method: :delete%>
+    <% else %>
+      <%= link_to "Home",root_path%>
+      <%= link_to "About",about_path%>
+      <%= link_to "sign up",new_user_registration_path, method: :get%>
+      <%= link_to "login",new_user_session_path, method: :get%>
+    <% end %>
+
+    <%= yield %>
+  </body>
+<footer>
+<p>CopyRight Infratop.inc</p>
+</footer>
+</html>
