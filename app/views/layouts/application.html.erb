@@ -21,31 +21,39 @@
       <p class="alert"><%= alert %></p>
      </div>
     <%end%>
-    <div class="container">
-      <div class="row">
-       <div class="col-lg-3">
-         <span>Bookers</span>
-       </div>
-       <div class="col-lg-9">
-        <% if user_signed_in? %>
-          <%= link_to fa_icon("home", text: "Home"),user_path(current_user.id) %>
-          <%= link_to fa_icon("user", text: "Users"),users_path %>
-          <%= link_to fa_icon("book", text: "Books"),books_path %>
-          <%= link_to fa_icon("sign-out-alt", text: "logout"),destroy_user_session_path, method: :delete%>
-        <% else %>
-          <%= link_to fa_icon("home", text: "Home"),root_path%>
-          <%= link_to fa_icon("eject", text: "About"),about_path%>
-          <%= link_to fa_icon("user-plus", text: "sign up"),new_user_registration_path, method: :get%>
-          <%= link_to fa_icon("sign-in-alt", text: "login"),new_user_session_path, method: :get%>
-        <% end %>
-       </div>
+
+    <header class="navbar navbar-default navbar-inverse">
+      <div class="container">
+        <div class="navbar-left">
+          <span>Bookers</span>
+        </div>
+        <div class="navbar-right">
+         <ul class="nav navbar-nav">
+          <% if user_signed_in? %>
+            <li><%= link_to fa_icon("home", text: "Home"),user_path(current_user.id) %></li>
+            <li><%= link_to fa_icon("user", text: "Users"),users_path %></li>
+            <li><%= link_to fa_icon("book", text: "Books"),books_path %></li>
+            <li><%= link_to fa_icon("sign-out", text: "logout"),destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to fa_icon("home", text: "Home"),root_path%></li>
+            <li><%= link_to fa_icon("eject", text: "About"),about_path%></li>
+            <li><%= link_to fa_icon("user-plus", text: "sign up"),new_user_registration_path, method: :get %></li>
+            <li><%= link_to fa_icon("sign-in", text: "login"),new_user_session_path, method: :get %></li>
+          <% end %>
+         </ul>
+        </div>
       </div>
-    </div>
+    </header>
     <%= yield %>
   </body>
 
-
-<footer>
-<p>CopyRight Infratop.inc</p>
-</footer>
-</html>
+<div class="container">
+  <div class="row">
+   <div class="col-xs-4 col-xs-offset-8">
+    <footer>
+    <p>CopyRight Infratop.inc</p>
+    </footer>
+    </html>
+   </div>
+  </div>
+</div>

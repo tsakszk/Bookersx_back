@@ -1,4 +1,14 @@
- <h1>Welcome to <%= fa_icon("book 1x") %></span><strong>Bookers</strong>!</h1>
- <p>In <%= fa_icon("book 1x") %>Bookers,<br>you can share and exchange your opinions , inpressions , and emotions<br>about various books!</p>
- <%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
- <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success" %>
+<div class="container">
+  <div class="row">
+   <div class="col-xs-6 col-xs-offset-3">
+    <h1>Welcome to <%= fa_icon("book 1x") %></span><strong>Bookers</strong>!</h1>
+    <p>In <%= fa_icon("book 1x") %>Bookers,<br>you can share and exchange your opinions , inpressions , and emotions<br>about various books!</p>
+    <div class="row">
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-primary col-xs-12" %>
+    </div>
+    <div class="row">
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success  col-xs-12" %>
+    </div>
+   </div>
+  </div>
+</div>

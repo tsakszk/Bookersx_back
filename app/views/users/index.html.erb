@@ -8,6 +8,7 @@
         </ul>
       </div>
 <% end %>
+
 <div class="container">
   <div class="row">
    <div class="col-xs-3">
@@ -23,14 +24,14 @@
           <th><%= @user.introduction %></th>
       </tr>
       </table>
-          <%= link_to fa_icon("wrench 2x"),edit_user_path(@user) %><br>
+      <div><%= link_to fa_icon("wrench 2x"),edit_user_path(@user), class: "col-xs-12 btn btn-default" %></div>
       <h1>New book</h1>
       <%= form_for(@book) do |f| %>
           <h4>Title</h4>
-          <%= f.text_field :title %>
+          <%= f.text_field :title, class: "col-xs-12" %>
           <h4>Opinion</h4>
-          <%= f.text_area :body %><br>
-          <%= f.submit 'Create Book',class: "btn btn-primary btn-lg" %>
+          <%= f.text_area :body, class: "col-xs-12" %><br>
+          <%= f.submit 'Create Book',class: "btn btn-primary btn-lg col-xs-12" %>
       <% end %>
    </div>
    <div class="col-xs-9">
@@ -46,7 +47,7 @@
       <% @users.each do |user| %>
      <tbody>
       <tr>
-        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no-image.png"%></td>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no-image-icon.jpg"%></td>
         <td><%= user.name %></td>
         <td><%= link_to "Show", user_path(user) %></td>
       </tr>
