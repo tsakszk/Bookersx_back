@@ -21,22 +21,30 @@
       <p class="alert"><%= alert %></p>
      </div>
     <%end%>
-
-     <span>Bookers</span>
-     <% if user_signed_in? %>
-      <%= link_to "Home",user_path(current_user.id) %>
-      <%= link_to "Users",users_path %>
-      <%= link_to "Books",books_path %>
-      <%= link_to "logout",destroy_user_session_path, method: :delete%>
-    <% else %>
-      <%= link_to "Home",root_path%>
-      <%= link_to "About",about_path%>
-      <%= link_to "sign up",new_user_registration_path, method: :get%>
-      <%= link_to "login",new_user_session_path, method: :get%>
-    <% end %>
-
+    <div class="container">
+      <div class="row">
+       <div class="col-lg-3">
+         <span>Bookers</span>
+       </div>
+       <div class="col-lg-9">
+        <% if user_signed_in? %>
+          <%= link_to fa_icon("home", text: "Home"),user_path(current_user.id) %>
+          <%= link_to fa_icon("user", text: "Users"),users_path %>
+          <%= link_to fa_icon("book", text: "Books"),books_path %>
+          <%= link_to fa_icon("sign-out-alt", text: "logout"),destroy_user_session_path, method: :delete%>
+        <% else %>
+          <%= link_to fa_icon("home", text: "Home"),root_path%>
+          <%= link_to fa_icon("eject", text: "About"),about_path%>
+          <%= link_to fa_icon("user-plus", text: "sign up"),new_user_registration_path, method: :get%>
+          <%= link_to fa_icon("sign-in-alt", text: "login"),new_user_session_path, method: :get%>
+        <% end %>
+       </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
+
+
 <footer>
 <p>CopyRight Infratop.inc</p>
 </footer>

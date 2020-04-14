@@ -24,14 +24,14 @@
         <th><%= @user.introduction %></th>
     </tr>
     </table>
-        <%= link_to "編集",edit_user_path(@user) %><br>
+        <%= link_to fa_icon("wrench 2x"),edit_user_path(@user) %><br>
     <h1>New book</h1>
     <%= form_for(@book) do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
         <h4>Opinion</h4>
         <%= f.text_area :body %><br>
-        <%= f.submit 'Create Book',class: "btn btn-default" %>
+        <%= f.submit 'Create Book',class: "btn btn-primary btn-lg" %>
     <% end %>
    </div>
 
